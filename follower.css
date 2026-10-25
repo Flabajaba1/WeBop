@@ -1,0 +1,9 @@
+#follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  pointer-events: none; /* Allows clicking through the follower to elements beneath */
+  z-index: 2147483647;  /* Highest possible z-index to stay on top of web elements */
+}

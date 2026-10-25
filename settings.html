@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webop - Settings</title>
+    <link rel="stylesheet" href="settings.css" />
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body>
+    <div class="theme-window">
+      <div class="theme-titlebar">
+        <div class="theme-title-text">webop - Settings</div>
+        <div class="theme-title-buttons">
+          <div class="theme-title-button"></div>
+          <div class="theme-title-button"></div>
+          <div class="theme-title-button"></div>
+        </div>
+      </div>
+      <div class="theme-client">
+        <main class="theme-main">
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">Appearance</div>
+            <div class="theme-groupbox-body">
+              <div class="theme-setting-row">
+                <label class="theme-setting-label" for="theme-select">Theme</label>
+                <div class="theme-setting-control">
+                  <select id="theme-select" class="theme-select">
+                    <option value="xp">Windows XP (Luna)</option>
+                    <option value="vista">Windows Vista (Aero)</option>
+                    <option value="frutiger-aero">Frutiger Aero</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">Audio ? 0 volume mutes all sounds</div>
+            <div class="theme-groupbox-body">
+              <div class="theme-setting-row">
+                <label class="theme-setting-label" for="master-volume">Main Volume</label>
+                <div class="theme-setting-control">
+                  <input
+                    type="range"
+                    id="master-volume"
+                    class="theme-slider"
+                    min="0"
+                    max="100"
+                    step="1"
+                  />
+                  <span class="theme-slider-value" id="master-volume-value">50</span>
+                  <button type="button" id="preview-sound" class="theme-action-button">Test</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">General</div>
+            <div class="theme-groupbox-body">
+              <div class="theme-setting-row">
+                <label class="theme-setting-label" for="username">Username</label>
+                <div class="theme-setting-control">
+                  <input
+                    type="text"
+                    id="username"
+                    class="theme-input"
+                    placeholder="Enter username"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">Cursor Mascot</div>
+            <div class="theme-groupbox-body">
+              <label class="theme-check-row"><input type="checkbox" id="follower-enabled" /> Show mascot on webpages</label>
+              <div class="theme-setting-row">
+                <label class="theme-setting-label" for="follower-size">Size</label>
+                <div class="theme-setting-control">
+                  <input type="range" id="follower-size" class="theme-slider" min="40" max="120" step="10" />
+                  <span class="theme-slider-value" id="follower-size-value">80</span>
+                </div>
+              </div>
+              <div class="theme-setting-row">
+                <label class="theme-setting-label" for="follower-speed">Following speed</label>
+                <div class="theme-setting-control">
+                  <input type="range" id="follower-speed" class="theme-slider" min="0.5" max="5" step="0.5" />
+                  <span class="theme-slider-value" id="follower-speed-value">1</span>
+                </div>
+              </div>
+              <div class="theme-setting-row">
+                <label class="theme-setting-label" for="follower-sites-mode">Sites</label>
+                <div class="theme-setting-control">
+                  <select id="follower-sites-mode" class="theme-select">
+                    <option value="all">All sites</option>
+                    <option value="allowlist">Only listed sites</option>
+                    <option value="blocklist">All except listed sites</option>
+                  </select>
+                </div>
+              </div>
+              <label class="site-list-label" for="follower-sites">One domain per line (for example, example.com)</label>
+              <textarea id="follower-sites" class="theme-input site-list" rows="3" spellcheck="false"></textarea>
+            </div>
+          </section>
+
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">Accessibility</div>
+            <div class="theme-groupbox-body">
+              <label class="theme-check-row"><input type="checkbox" id="reduced-motion" /> Reduce motion and hide the animated mascot</label>
+            </div>
+          </section>
+
+          <div class="theme-action-bar">
+            <button class="theme-action-button" id="btn-reset">Reset to Defaults</button>
+            <button class="theme-action-button" id="btn-back">Back</button>
+            <button class="theme-action-button" id="btn-save">Apply</button>
+          </div>
+
+          <div class="theme-status-message" id="status-message"></div>
+        </main>
+      </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script src="settings.js"></script>
+  </body>
+</html>

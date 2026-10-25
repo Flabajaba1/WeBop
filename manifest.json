@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "webop",
+  "version": "1.0.0",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["follower.js"],
+      "css": ["follower.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+  {
+    "resources": ["frame1.png", "frame2.png", "frame3.png", "frame4.png", "frame5.png"],
+    "matches": ["<all_urls>"]
+  }
+  ],
+
+  "description": "A Frutiger Aero themed extension base.",
+  "permissions": ["storage"],  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "options_page": "settings.html",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "webop"
+  }
+}

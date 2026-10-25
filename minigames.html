@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webop - Minigames</title>
+    <link rel="stylesheet" href="minigames.css" />
+    <link rel="stylesheet" href="shared.css" />
+  </head>
+  <body class="games-page">
+    <div class="theme-window">
+      <div class="theme-titlebar">
+        <div class="theme-title-text">webop - Minigames</div>
+        <div class="theme-title-buttons">
+          <div class="theme-title-button"></div>
+          <div class="theme-title-button"></div>
+          <div class="theme-title-button"></div>
+        </div>
+      </div>
+      <div class="theme-client">
+        <div class="wallet-bar">
+          <div class="wallet-item">
+            <span class="wallet-label">Coins:</span>
+            <span class="wallet-amount" id="coins-display">0</span>
+          </div>
+          <div class="wallet-item">
+            <span class="wallet-label">Net Worth:</span>
+            <span class="wallet-amount" id="networth-display">0</span>
+          </div>
+        </div>
+
+        <div class="game-notice" id="game-notice" role="status" aria-live="polite">Bake, build, and take a little break. Progress saves automatically.</div>
+        <div class="game-selector">
+          <button class="game-tab active" data-game="menu">Menu</button>
+          <button class="game-tab" data-game="clicker">Cookie Clicker</button>
+          <button class="game-tab" data-game="horses">Horse Racing</button>
+          <button class="game-tab" data-game="slots">Lucky Slots</button>
+        </div>
+
+        <!-- Menu Screen -->
+        <div id="game-menu" class="game-screen active">
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">Select a Minigame</div>
+            <div class="theme-groupbox-body menu-body">
+              <button class="menu-game-btn" data-game="clicker">
+                <div class="menu-game-title">🍪 Cookie Clicker</div>
+                <div class="menu-game-desc">Click to earn coins. Buy upgrades to automate.</div>
+              </button>
+              <button class="menu-game-btn" data-game="horses">
+                <div class="menu-game-title">🏇 Horse Racing</div>
+                <div class="menu-game-desc">Bet on horses and watch them race!</div>
+              </button>
+              <button class="menu-game-btn" data-game="slots">
+                <div class="menu-game-title">🎰 Lucky Slots</div>
+                <div class="menu-game-desc">Spin to win big with your coins!</div>
+              </button>
+            </div>
+          </section>
+          <section class="theme-groupbox achievement-box">
+            <div class="theme-groupbox-header">Achievements <span id="achievement-count">0/8</span></div>
+            <div class="achievement-list" id="achievement-list" aria-live="polite"></div>
+          </section>
+        </div>
+
+        <!-- Cookie Clicker -->
+        <div id="game-clicker" class="game-screen">
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">Cookie Clicker</div>
+            <div class="theme-groupbox-body clicker-body">
+              <div class="clicker-main">
+                <div class="clicker-stats">
+                  <div>Cookies: <span id="cookie-count">0</span></div>
+                  <div>Per Click: <span id="per-click">1</span></div>
+                  <div>Per Second: <span id="per-second">0</span></div>
+                </div>
+                <button class="cookie-btn" aria-label="Bake cookies" id="cookie-btn">🍪</button>
+              </div>
+              <div class="upgrades-section">
+                <div class="upgrades-title">Upgrades</div>
+                <label class="buy-control" for="buy-amount">Buy quantity
+                  <select id="buy-amount"><option value="1">1</option><option value="10">Up to 10</option><option value="100">Up to 100</option><option value="max">Max affordable</option></select>
+                </label>
+                <div class="upgrade-list" id="upgrade-list"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Horse Racing -->
+        <div id="game-horses" class="game-screen">
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">Horse Racing</div>
+            <div class="theme-groupbox-body horses-body">
+              <div class="race-info">
+                <div>Balance: <span id="horse-balance">0</span> coins</div>
+              </div>
+              <div class="betting-section">
+                <div class="betting-title">Place Your Bets</div>
+                <div class="horses-list">
+                  <div class="horse-bet-row">
+                    <span class="horse-name">🏇 Thunder</span>
+                    <input type="number" class="bet-input" id="bet-thunder" min="0" value="0" />
+                    <span class="horse-odds">2.5x</span>
+                  </div>
+                  <div class="horse-bet-row">
+                    <span class="horse-name">🐎 Blaze</span>
+                    <input type="number" class="bet-input" id="bet-blaze" min="0" value="0" />
+                    <span class="horse-odds">3.0x</span>
+                  </div>
+                  <div class="horse-bet-row">
+                    <span class="horse-name">🦄 Midnight</span>
+                    <input type="number" class="bet-input" id="bet-midnight" min="0" value="0" />
+                    <span class="horse-odds">4.5x</span>
+                  </div>
+                  <div class="horse-bet-row">
+                    <span class="horse-name">🐴 Rusty</span>
+                    <input type="number" class="bet-input" id="bet-rusty" min="0" value="0" />
+                    <span class="horse-odds">6.0x</span>
+                  </div>
+                </div>
+                <button class="race-btn" id="start-race">Start Race</button>
+              </div>
+              <div class="race-track" id="race-track" style="display: none;">
+                <div class="race-track-header"><span>THE COOKIE CUP</span><span class="race-distance">FINISH</span></div>
+                <div class="race-callout" id="race-callout" role="status" aria-live="polite">Horses to the gate!</div>
+                <div class="race-lane">
+                  <span class="lane-horse">🏇</span>
+                  <div class="lane-track"></div>
+                </div>
+                <div class="race-lane">
+                  <span class="lane-horse">🐎</span>
+                  <div class="lane-track"></div>
+                </div>
+                <div class="race-lane">
+                  <span class="lane-horse">🦄</span>
+                  <div class="lane-track"></div>
+                </div>
+                <div class="race-lane">
+                  <span class="lane-horse">🐴</span>
+                  <div class="lane-track"></div>
+                </div>
+                <div class="race-result" role="status" id="race-result"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Lucky Slots -->
+        <div id="game-slots" class="game-screen">
+          <section class="theme-groupbox">
+            <div class="theme-groupbox-header">Lucky Slots</div>
+            <div class="theme-groupbox-body slots-body">
+              <div class="slots-info">
+                <div>Balance: <span id="slots-balance">0</span> coins</div>
+                <div>Bet: <input type="number" id="slots-bet" value="10" min="1" style="width: 60px;" /> coins</div>
+              </div>
+              <div class="slots-machine">
+                <div class="slots-reels">
+                  <div class="slot-reel" id="reel1">🍒</div>
+                  <div class="slot-reel" id="reel2">🍋</div>
+                  <div class="slot-reel" id="reel3">🍊</div>
+                </div>
+              </div>
+              <button class="spin-btn" id="spin-slots">SPIN</button>
+              <div class="slots-result" role="status" id="slots-result"></div>
+              <div class="payout-table">
+                <div class="payout-title">Payouts</div>
+                <div class="payout-row">🍒🍒🍒 = 5x</div>
+                <div class="payout-row">🍋🍋🍋 = 10x</div>
+                <div class="payout-row">🍊🍊🍊 = 15x</div>
+                <div class="payout-row">💎💎💎 = 50x</div>
+                <div class="payout-row">7️⃣7️⃣7️⃣ = 100x</div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="theme-action-bar">
+          <button class="theme-action-button" id="btn-back-menu">Back to Menu</button>
+          <button class="theme-action-button" id="btn-back-popup">Back to Main</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script src="minigames.js"></script>
+  </body>
+</html>

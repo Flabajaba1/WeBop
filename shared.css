@@ -1,0 +1,59 @@
+/* Shared visual tokens keep all extension surfaces in the selected era. */
+body { --ink:#173451; --muted:#526579; --accent:#0054e3; --line:#8aa3bf; --surface:#ece9d8; --panel:#faf9f4; --top:#fff; --bottom:#e4e1d5; --radius:4px; --title:linear-gradient(#2687ff,#0054e3 55%,#003399); --title-ink:#fff; color:var(--ink); }
+body.theme-vista { --ink:#203e60; --muted:#526984; --accent:#326db0; --line:#8caed3; --surface:#e9f1fb; --panel:#f5f9ff; --bottom:#d4e4f8; --radius:8px; --title:linear-gradient(#e1efff,#a0bfe6); --title-ink:#203e60; }
+body.theme-frutiger-aero { --ink:#034463; --muted:#396b80; --accent:#007f9f; --line:#7ec7dc; --surface:#d6f2fb; --panel:#effcff; --bottom:#b3e8f5; --radius:14px; --title:linear-gradient(#fff,#c5effb); --title-ink:#034463; }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-window, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .popup-window { border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--surface); }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-titlebar, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .popup-titlebar { display:flex; min-height:30px; background:var(--title); border-bottom:1px solid var(--line); }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-title-text, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .popup-title-text { color:var(--title-ink); text-shadow:none; }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-client, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .popup-client-area { background:var(--surface); }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-groupbox { position:static; padding:12px; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-groupbox-header { position:static; margin:0 0 12px; padding:0; background:transparent; color:var(--ink); font-size:13px; font-weight:700; }
+body button { font:inherit; cursor:pointer; }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-action-button, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .popup-button, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .game-tab, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .menu-game-btn, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .upgrade-btn, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .race-btn, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .spin-btn { color:var(--ink); border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(var(--top),var(--bottom)); padding:9px 12px; text-shadow:none; box-shadow:inset 0 1px #fff; }
+body button:hover:not(:disabled) { filter:brightness(1.04); border-color:var(--accent); }
+body button:active:not(:disabled) { transform:translateY(1px); }
+body button:disabled { opacity:.5; cursor:not-allowed; }
+body :is(button,input,select):focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+body input, body select { font:inherit; color:var(--ink); background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:5px; }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-main { gap:12px; }
+body:has(.theme-window) { width:400px; min-height:550px; padding:0; font-size:12px; }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-window { width:100%; }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-setting-control { min-width:0; }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-input, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-select { min-width:0; width:170px; }
+body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-setting-label, body:is(.theme-xp, .theme-vista, .theme-frutiger-aero) .theme-slider-value { color:var(--ink); }
+body.games-page { height:590px; overflow-y:auto; }
+.games-page .theme-client { padding:12px; }
+.games-page .wallet-bar { justify-content:space-between; background:var(--panel); border-color:var(--line); border-radius:var(--radius); padding:10px; }
+.games-page .game-notice { color:var(--muted); font-size:11px; line-height:1.5; min-height:34px; margin-bottom:10px; }
+.games-page .game-selector { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin-bottom:12px; }
+.games-page .game-tab { padding:8px 3px; font-size:10px; }
+.games-page .game-tab.active { color:#fff; background:var(--accent); border-color:var(--accent); }
+.games-page .menu-body { gap:10px; }
+.games-page .menu-game-btn { padding:16px 12px; }
+.games-page .menu-game-title { font-size:14px; margin-bottom:6px; }
+.games-page .menu-game-desc, .games-page .upgrade-cost { color:var(--muted); font-size:11px; }
+.games-page .clicker-stats { display:flex; justify-content:center; gap:18px; font-size:11px; }
+.games-page .clicker-stats span { display:block; color:var(--accent); font-size:17px; font-weight:700; }
+.games-page .cookie-btn { width:100px; height:100px; border-radius:50%; border:1px solid var(--line); background:radial-gradient(circle at 35% 25%,#fff,var(--bottom)); font-size:60px; box-shadow:0 6px 16px #17345120; }
+.games-page .upgrades-section, .games-page .payout-table { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:10px; }
+.games-page .buy-control { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; font-size:11px; }
+.games-page .upgrade-btn { padding:9px; }
+.games-page .upgrade-name { font-weight:600; margin-bottom:4px; }
+.games-page .race-track { background:linear-gradient(155deg,#d5f4bf,#82c76a); border-color:#6b9d5e; border-radius:var(--radius); }
+.games-page .race-callout { color:var(--ink); }
+.games-page .slots-machine { border:1px solid var(--line); border-radius:var(--radius); background:var(--bottom); }
+.games-page .slot-reel { border:1px solid var(--line); border-radius:var(--radius); }
+.games-page .slots-info { align-items:center; justify-content:space-between; }
+.games-page .payout-table { display:flex; flex-wrap:wrap; gap:8px 16px; }
+.games-page .payout-title { width:100%; }
+.games-page .theme-action-bar { padding-top:12px; }
+@media (prefers-reduced-motion:reduce) { *, *::before, *::after { transition:none !important; animation:none !important; } }
+body.reduced-motion *, body.reduced-motion *::before, body.reduced-motion *::after { transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+.games-page .achievement-box { margin-top:10px; }
+.games-page .achievement-list { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.games-page .achievement-item { display:flex; align-items:flex-start; gap:7px; padding:7px; border:1px solid var(--line); border-radius:var(--radius); color:var(--muted); opacity:.68; }
+.games-page .achievement-item.earned { color:var(--ink); opacity:1; background:var(--bottom); }
+.games-page .achievement-mark { color:var(--accent); font-size:17px; line-height:1; }
+.games-page .achievement-item strong, .games-page .achievement-item small { display:block; }
+.games-page .achievement-item small { margin-top:3px; color:var(--muted); font-size:10px; }
+.games-page #achievement-count { color:var(--muted); font-weight:400; font-size:11px; }

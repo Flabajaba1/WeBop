@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>webop - Chat with Kael</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body class="chat-page">
+
+
+
+<div class="popup-window">
+      <div class="popup-titlebar">
+        <div class="popup-title-text">Talk to kael</div>
+        <div class="chat-toolbar">
+          <button class="popup-button" id="clearKeyBtn" type="button">Remove Key</button>
+          <button class="popup-button" id="clearBtn" type="button">Clear Chat</button>
+        </div>
+
+      </div>
+      <div class="popup-client-area">
+        <section class="chat-setup" aria-label="Chat setup">
+          <p>To chat with Kael, add a Gemini API key from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer">Google AI Studio</a>. Your key is saved in this extension's local storage and sent to Google when you chat.</p>
+          <label class="key-section" for="apiKeyInput">Gemini API key
+            <input type="password" id="apiKeyInput" autocomplete="off" placeholder="Paste your API key here" />
+          </label>
+        </section>
+        <div id="chat-status" class="chat-status" role="status" aria-live="polite">Add your API key to get started.</div>
+        <div id="chat-box"></div>
+
+        <div class="input-row">
+          <input type="text" id="userInput" placeholder="Type a message..." aria-label="Message" />
+          <button id="sendBtn" type="button">Send</button>
+          <button id="btn-back" type="button">Back</button>
+        </div>
+      </div>
+    <script src="chatbot.js"></script>
+</body>
+</html>

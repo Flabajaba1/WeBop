@@ -1,1 +1,13 @@
-# WeBop
+﻿# webop Chrome extension
+
+Load this folder through **chrome://extensions → Developer mode → Load unpacked**. Open webop from the Chrome toolbar. No build step or network connection is required.
+
+Windows XP, Windows Vista and Frutiger Aero share the same controls, panels and navigation across the popup, settings and minigames. Settings includes a volume slider and sound preview; volume 0 mutes all cues. Sounds are synthesized locally after interaction, with a different tone palette for each theme.
+
+Cookie Clicker has six upgrade tiers and purchase quantities of 1, up to 10, up to 100, or the maximum affordable quantity. Prices grow per unit; purchase buttons show the actual quantity and total cost. Idle production earns coins while away for up to eight hours, calculated on the next opening without a background service or additional permissions. Existing game saves migrate automatically. Large balances use compact display formatting while calculations use the saved numeric state.
+
+Horse Racing and Lucky Slots share the cookie wallet, validate whole-number bets, prevent overlapping rounds, and save outcomes before animations complete. Payouts include the winning stake. Horse races now feature a countdown, changing race commentary, galloping animation, wager highlights, and a photo finish. Eight achievements require 100 manual clicks, 10,000 cookies, 25 owned upgrades, 10 races, 5 backed race wins, 25 slot spins, 5 slot payouts, or a 100,000-coin balance; previously unlocked achievements stay unlocked.
+
+Settings include mascot enablement, size, following speed, and per-domain allow/block lists. Domain entries accept one hostname per line; subdomains match their parent entry. Reduced Motion hides the mascot and skips race/slot animations, and the operating-system reduced-motion preference is also respected. Chat setup explains how to obtain a Gemini key and where it is stored, reports request errors in the UI, and provides separate controls to clear the conversation or remove the saved key.
+
+For a manual check, switch between each theme in Settings, apply it, then visit every page. Test volume at 0 and 50; disable, resize, and change the mascot speed; verify allowlist/blocklist behavior on matching domains; and enable reduced motion. In Chat, send a message, clear the conversation, and remove the saved key. In Minigames, verify achievements unlock and persist, buy clicker upgrades with each quantity, close and reopen to check progress, and try valid/invalid bets in both games. Keyboard focus and the operating-system reduced-motion preference are also supported. Live Chrome visual/audio verification remains manual.

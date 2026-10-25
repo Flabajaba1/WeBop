@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>webop Desktop</title>
+  <link rel="stylesheet" href="shared.css"><link rel="stylesheet" href="popup.css">
+</head>
+<body class="desktop-page">
+  <main class="desktop-shell">
+    <div class="desktop-brand" aria-hidden="true">webop<span>your little desktop</span></div>
+    <div id="desktop" class="desktop-grid" role="grid" aria-label="Desktop, 4 columns and 5 rows" aria-rowcount="5" aria-colcount="4" aria-describedby="desktop-help"></div>
+    <div class="desktop-hint" id="desktop-help">Double-click to open ? Drag to arrange</div>
+    <footer class="taskbar">
+      <button id="start-button" class="start-button" aria-expanded="false" aria-controls="start-menu"><span aria-hidden="true">?</span> start</button>
+      <span id="desktop-status" class="desktop-status" role="status" aria-live="polite">Desktop</span>
+      <time id="desktop-clock" class="desktop-clock"></time>
+    </footer>
+    <nav id="start-menu" class="desktop-menu start-menu" aria-label="Start" hidden>
+      <div class="menu-heading">webop</div>
+      <button data-open="settings">Settings</button><button data-open="chatbot">Chatbot</button><button data-open="minigames">Minigames</button>
+      <hr><button data-command="arrange">Arrange icons</button>
+    </nav>
+    <div id="context-menu" class="desktop-menu context-menu" role="menu" aria-label="Desktop actions" hidden>
+      <button role="menuitem" id="context-open">Open</button>
+      <button role="menuitem" data-command="arrange">Arrange icons</button>
+      <button role="menuitem" data-command="refresh">Refresh desktop</button>
+      <hr><button role="menuitem" data-open="settings">Personalize?</button>
+    </div>
+  </main>
+  <script src="shared.js"></script><script src="popup.js"></script>
+</body>
+</html>
